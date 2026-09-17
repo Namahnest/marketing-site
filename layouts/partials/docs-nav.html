@@ -1,0 +1,9 @@
+<nav aria-label="Documentation navigation">
+  <a href="{{ "/docs/" | relURL }}" class="mb-5 flex items-center gap-2 text-sm font-semibold">{{ partial "icon.html" (dict "name" "book" "class" "!h-4 !w-4 text-indigo-400") }} Documentation</a>
+  {{ $current := . }}
+  {{ range slice "Get started" "Deployment" "Customization" }}
+  {{ $group := . }}<h2 class="mb-2 mt-6 text-[10px] font-semibold uppercase tracking-widest muted">{{ . }}</h2>
+  {{ range (where $current.Site.RegularPages "Section" "docs").ByWeight }}{{ if eq .Params.group $group }}
+    <a href="{{ .RelPermalink }}" class="mb-1 block rounded-lg px-3 py-2.5 text-xs {{ if eq .RelPermalink $current.RelPermalink }}bg-indigo-500/10 text-indigo-400{{ else }}muted hover:text-indigo-400{{ end }}" {{ if eq .RelPermalink $current.RelPermalink }}aria-current="page"{{ end }}>{{ .Title }}</a>
+  {{ end }}{{ end }}{{ end }}
+</nav>

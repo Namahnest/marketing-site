@@ -1,0 +1,11 @@
+{{/* Heroicons 2.2.0, Copyright (c) Tailwind Labs, Inc., MIT.
+     Full license is distributed in static/licenses/heroicons-MIT.txt.
+     Canonical paths are preserved; local wrapper controls size and styling. */}}
+{{ $icon := resources.Get (printf "icons/%s.svg" .name) }}
+{{ if not $icon }}
+  {{ errorf "Missing Heroicons asset for icon %q" .name }}
+{{ else }}
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon {{ .class }}" aria-hidden="true">
+    {{ $icon.Content | replaceRE "<svg[^>]*>|</svg>" "" | safeHTML }}
+  </svg>
+{{ end }}

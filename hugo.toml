@@ -1,0 +1,46 @@
+baseURL = 'https://namahnest.example/'
+languageCode = 'en-us'
+title = 'NamahNest — A better foundation for the web'
+enableRobotsTXT = true
+enableGitInfo = false
+summaryLength = 24
+
+[params]
+  brand = 'NamahNest'
+  description = 'Thoughtfully crafted Hugo and Tailwind website kits for documentation, startups, and ambitious teams. Own your code. Launch with confidence.'
+  author = 'NamahNest Studio'
+  email = 'hello@namahnest.example'
+  github = ''
+  contactEndpoint = ''
+  socialImage = '/images/social-card.png'
+  currency = 'USD'
+
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML', 'RSS']
+
+[markup.goldmark.renderer]
+  unsafe = false
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+[sitemap]
+  changeFreq = 'monthly'
+  priority = 0.5
+
+[[menus.main]]
+  name = 'Plans'
+  url = '/plans/'
+  weight = 10
+[[menus.main]]
+  name = 'Why static?'
+  url = '/#why-static'
+  weight = 20
+[[menus.main]]
+  name = 'Documentation'
+  url = '/docs/'
+  weight = 30
+[[menus.main]]
+  name = 'Pricing'
+  url = '/pricing/'
+  weight = 40

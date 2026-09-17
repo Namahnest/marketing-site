@@ -1,0 +1,25 @@
+{{ define "main" }}<section class="shell section">
+<div class="mx-auto max-w-2xl text-center">
+<p class="eyebrow justify-center">Good design. Straightforward pricing.</p>
+<h1 class="text-4xl font-semibold tracking-[-0.05em] md:text-5xl">{{ .Title }}</h1>
+<p class="mt-5 text-base leading-7 muted">Buy your website once. Add a helping hand when you need it.</p>
+<div class="panel mx-auto mt-8 flex w-fit gap-1 !rounded-full p-1" role="group" aria-label="Pricing display">
+<button data-billing="once" aria-pressed="true" class="filter-btn !rounded-full">One-time kits</button>
+<button data-billing="monthly" aria-pressed="false" class="filter-btn !rounded-full">Monthly support</button>
+</div>
+<p data-billing-note class="mt-4 text-xs muted" aria-live="polite">One-time purchase. Optional support sold separately.</p>
+</div>
+<div class="mt-12 grid gap-6 md:grid-cols-3">{{ range slice (dict "name" "Starter" "subtitle" "For your first big impression." "once" "59" "monthly" "19" "plan" "Launchpad" "features" (slice "Launchpad landing page kit" "Modular conversion sections" "Hugo & Tailwind source code" "SEO & deployment guides" "One year of kit updates")) (dict "name" "Pro Docs" "subtitle" "For products ready to grow." "once" "79" "monthly" "19" "plan" "Atlas Docs" "features" (slice "Atlas documentation kit" "Multi-level sidebar & search" "Light & dark theme support" "Hugo & Tailwind source code" "One year of kit updates")) (dict "name" "Enterprise" "subtitle" "For teams building something bigger." "once" "Custom" "monthly" "Custom" "plan" "Enterprise Custom Setup" "features" (slice "Custom static architecture" "Brand-aligned design system" "Migration & integrations" "Team onboarding & training" "Scoped support agreement")) }}<article class="panel relative flex flex-col p-7 {{ if eq .name "Pro Docs" }}!border-indigo-500{{ end }}">{{ if eq .name "Pro Docs" }}<span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-indigo-500 px-4 py-1 text-[10px] font-medium text-white">The team's favorite</span>{{ end }}<h2 class="text-xl font-semibold tracking-tight">{{ .name }}</h2>
+<p class="mt-2 text-sm muted">{{ .subtitle }}</p>
+<div class="mb-6 mt-7">
+<span data-once-price="{{ .once }}" data-monthly-price="{{ .monthly }}" class="text-4xl font-semibold tracking-tight">{{ if ne .once "Custom" }}${{ end }}{{ .once }}</span>
+<span data-price-unit class="ml-2 text-xs muted">{{ if ne .once "Custom" }}one-time{{ else }}let's talk{{ end }}</span>
+</div>
+<ul class="mb-8 space-y-4">{{ range .features }}<li class="flex gap-2 text-xs muted">{{ partial "icon.html" (dict "name" "check" "class" "!h-4 !w-4 text-emerald-400") }}{{ . }}</li>{{ end }}</ul>
+<a href="{{ "/contact/" | relURL }}?plan={{ .plan | urlquery }}" class="{{ if eq .name "Pro Docs" }}btn-primary{{ else }}btn-secondary{{ end }} mt-auto">{{ if eq .name "Enterprise" }}Let's talk{{ else }}Choose {{ .name }}{{ end }} {{ partial "icon.html" (dict "name" "arrow" "class" "!h-4 !w-4") }}</a>
+</article>{{ end }}</div>
+<div class="mx-auto mt-12 max-w-2xl">
+<h2 class="text-center text-xl font-semibold">Everything is yours. Support is your choice.</h2>
+<p class="mt-4 text-center text-sm leading-7 muted">Monthly support includes setup guidance, configuration help, and troubleshooting for your purchased kit. It requires a separate one-time kit purchase and does not include hosting or custom development. Cancel anytime; your website stays yours.</p>
+</div>
+</section>{{ end }}

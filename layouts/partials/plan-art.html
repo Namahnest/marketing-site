@@ -1,0 +1,84 @@
+<div class="plan-art {{ .Params.category }}" aria-hidden="true">
+{{ if eq .Params.category "docs" }}
+  <div class="w-full max-w-[265px] translate-y-5 overflow-hidden rounded-t-lg border border-[#44405b] bg-[#10131c] shadow-2xl">
+<div class="flex h-7 items-center gap-1.5 border-b border-white/10 px-3">
+<span class="h-1.5 w-1.5 rounded-full bg-[#666078]">
+</span>
+<span class="h-1.5 w-1.5 rounded-full bg-[#666078]">
+</span>
+<span class="h-1.5 w-1.5 rounded-full bg-[#666078]">
+</span>
+<span class="ml-auto text-[6px] text-slate-400">atlas / docs</span>
+</div>
+<div class="grid h-32 grid-cols-[65px_1fr]">
+<div class="space-y-3 border-r border-white/10 p-3">
+<div class="h-1 w-9 rounded bg-violet-400">
+</div>
+<div class="h-1 w-7 rounded bg-slate-700">
+</div>
+<div class="h-1 w-8 rounded bg-slate-700">
+</div>
+<div class="h-1 w-6 rounded bg-slate-700">
+</div>
+<div class="h-1 w-8 rounded bg-slate-700">
+</div>
+</div>
+<div class="p-4">
+<div class="text-[7px] text-violet-300">GET STARTED</div>
+<div class="mt-2 text-xs font-semibold text-white">Welcome to Atlas.</div>
+<div class="mt-2 h-1 w-full rounded bg-slate-700">
+</div>
+<div class="mt-1 h-1 w-3/4 rounded bg-slate-700">
+</div>
+<div class="mt-3 h-7 rounded border border-violet-500/20 bg-violet-500/10">
+</div>
+<div class="mt-3 flex gap-2">
+<div class="h-7 w-1/2 rounded border border-white/10">
+</div>
+<div class="h-7 w-1/2 rounded border border-white/10">
+</div>
+</div>
+</div>
+</div>
+</div>
+{{ else if eq .Params.category "landing" }}
+  <div class="w-full max-w-[265px] translate-y-5 overflow-hidden rounded-t-lg border border-[#355047] bg-[#10201a] shadow-2xl">
+<div class="flex h-8 items-center justify-between border-b border-white/10 px-3">
+<span class="text-[8px] font-semibold text-mint">✳ launchpad</span>
+<span class="text-[5px] text-slate-300">Features &nbsp;&nbsp; Pricing &nbsp;&nbsp; About</span>
+<span class="rounded bg-mint px-2 py-1 text-[5px] text-ink">Get started ↗</span>
+</div>
+<div class="px-5 py-5 text-center">
+<span class="rounded-full border border-emerald-300/20 px-2 py-1 text-[5px] text-emerald-300">INTRODUCING A BETTER WAY</span>
+<p class="mt-3 text-lg font-semibold leading-tight tracking-tight text-white">Your next big idea.<br>
+<span class="text-mint">Starts here.</span>
+</p>
+<p class="mt-2 text-[6px] text-slate-400">Everything you need to go from zero to launch.</p>
+<div class="mx-auto mt-3 w-fit rounded bg-mint px-3 py-1.5 text-[6px] font-medium text-ink">Start building →</div>
+</div>
+</div>
+{{ else }}
+  <div class="w-full max-w-[265px] translate-y-5 overflow-hidden rounded-t-lg border border-[#455162] bg-[#172330] shadow-2xl">
+<div class="flex h-8 items-center justify-between border-b border-white/10 px-3">
+<span class="text-[9px] font-semibold text-white">mono<span class="text-blue-300">.</span>
+</span>
+<span class="text-[5px] text-slate-300">Our work &nbsp;&nbsp; About &nbsp;&nbsp; Let's talk ↗</span>
+</div>
+<div class="grid grid-cols-[1fr_70px] gap-3 px-5 py-6">
+<div>
+<p class="text-[5px] tracking-widest text-blue-300">INDEPENDENT. BY DESIGN.</p>
+<p class="mt-2 text-[17px] font-semibold leading-tight tracking-tight text-white">Good work.<br>Great impact.</p>
+<p class="mt-3 text-[6px] text-slate-400">We turn ambition into something real.</p>
+<p class="mt-3 text-[6px] text-white">Discover our work ↗</p>
+</div>
+<div class="relative mt-2 h-20">
+<div class="absolute right-0 top-0 h-14 w-12 rotate-12 rounded-lg bg-[#90aabe]">
+</div>
+<div class="absolute bottom-0 left-0 h-14 w-12 -rotate-12 rounded-lg bg-[#456581] shadow-xl">
+</div>
+</div>
+</div>
+</div>
+{{ end }}
+<span class="absolute left-4 top-4 rounded-md border border-white/15 bg-black/20 px-2 py-1 text-[9px] text-white/70">Hugo + Tailwind</span>
+</div>

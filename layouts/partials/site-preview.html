@@ -1,0 +1,54 @@
+<div class="browser panel w-full overflow-hidden text-left" role="img" aria-label="Preview of the Atlas documentation kit: sidebar navigation, introduction, and quick-start cards">
+  <div class="browser-toolbar flex h-10 items-center gap-1.5 px-4">
+<span class="h-2 w-2 rounded-full bg-[#fb7b75]">
+</span>
+<span class="h-2 w-2 rounded-full bg-[#e9bd59]">
+</span>
+<span class="h-2 w-2 rounded-full bg-[#69c38a]">
+</span>
+<div class="mx-auto flex items-center gap-2 rounded bg-black/10 px-12 py-1 text-[9px] muted">{{ partial "icon.html" (dict "name" "shield" "class" "!h-2.5 !w-2.5") }} docs.yourproduct.com</div>
+<span class="text-xs muted">↗</span>
+</div>
+  <div class="flex h-11 items-center justify-between border-b px-4" style="border-color:var(--border)">
+<span class="flex items-center gap-2 text-[11px] font-semibold">
+<span class="grid h-5 w-5 place-items-center rounded bg-indigo-500 text-white">a</span> atlas<span class="ml-2 text-[9px] font-normal muted">Documentation</span>
+</span>
+<span class="flex items-center gap-2 rounded-md px-3 py-1 text-[9px] muted" style="background:var(--panel-alt)">{{ partial "icon.html" (dict "name" "search" "class" "!h-3 !w-3") }} Search docs… <span class="ml-3">⌘ K</span>
+</span>
+</div>
+  <div class="grid min-h-[295px] grid-cols-[115px_1fr] sm:grid-cols-[135px_1fr]">
+    <div class="preview-sidebar space-y-1 p-3">
+<p class="px-3 pb-1 pt-2 text-[9px] font-semibold">GET STARTED</p>
+<div class="preview-link active">Introduction</div>
+<div class="preview-link">Quick start</div>
+<div class="preview-link">Installation</div>
+<p class="px-3 pb-1 pt-4 text-[9px] font-semibold">BUILD YOUR SITE</p>
+<div class="preview-link">Configuration</div>
+<div class="preview-link">Customization</div>
+<div class="preview-link">Deployment <span class="float-right">›</span>
+</div>
+<div class="preview-link">API reference</div>
+</div>
+    <div class="p-5 sm:p-7">
+<div class="mb-4 text-[9px] muted">Get started <span class="mx-2">/</span> <span class="text-indigo-400">Introduction</span>
+</div>
+<p class="text-[23px] font-semibold tracking-tight">Welcome to Atlas<span class="ml-2 text-lg">✳</span>
+</p>
+<p class="mt-2 max-w-xs text-[10px] leading-5 muted">Beautiful documentation starts here. Everything you need to help your users build something great.</p>
+<div class="mt-5 rounded-lg border border-indigo-500/20 bg-indigo-500/5 p-3">
+<div class="flex items-center gap-2 text-[10px] text-indigo-400">{{ partial "icon.html" (dict "name" "zap" "class" "!h-3 !w-3") }} Up and running in minutes</div>
+<p class="mt-1 text-[9px] muted">From your first commit to your first deployment.</p>
+</div>
+<div class="mt-4 grid grid-cols-2 gap-3">
+<div class="rounded-lg border p-3" style="border-color:var(--border)">{{ partial "icon.html" (dict "name" "book" "class" "!h-4 !w-4 text-indigo-400") }}<p class="mt-2 text-[10px] font-medium">Quick start <span class="float-right muted">↗</span>
+</p>
+<p class="mt-1 text-[9px] muted">Let's get you set up.</p>
+</div>
+<div class="rounded-lg border p-3" style="border-color:var(--border)">{{ partial "icon.html" (dict "name" "code" "class" "!h-4 !w-4 text-indigo-400") }}<p class="mt-2 text-[10px] font-medium">Customization <span class="float-right muted">↗</span>
+</p>
+<p class="mt-1 text-[9px] muted">Make it your own.</p>
+</div>
+</div>
+</div>
+  </div>
+</div>

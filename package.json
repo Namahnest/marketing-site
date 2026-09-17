@@ -1,0 +1,13 @@
+{
+  "name": "namahnest-static-studio",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "hugo server --disableFastRender",
+    "build": "npm run css && hugo --minify",
+    "css": "tailwindcss -i assets/css/main.css -o assets/css/compiled.css --minify",
+    "css:watch": "tailwindcss -i assets/css/main.css -o assets/css/compiled.css --watch",
+    "check": "node scripts/check-links.mjs"
+  },
+  "devDependencies": { "tailwindcss": "3.4.17" }
+}
