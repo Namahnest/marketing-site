@@ -1,0 +1,151 @@
+{{ define "main" }}
+<section class="hero-glow relative overflow-hidden">
+  <div class="shell grid items-center gap-14 pb-16 pt-16 lg:grid-cols-[1fr_1.05fr] lg:gap-12 lg:pb-20 lg:pt-24">
+    <div class="reveal">
+<a href="{{ "/plans/atlas/" | relURL }}" class="pill mb-7 !pr-2">
+<span class="h-1.5 w-1.5 rounded-full bg-mint">
+</span>
+<span class="muted">Less complexity. More possibility.</span>{{ partial "icon.html" (dict "name" "chevron" "class" "!h-3 !w-3 ml-2 muted") }}</a>
+<h1 class="text-[40px] font-semibold leading-[1.08] tracking-[-0.055em] sm:text-[54px] xl:text-[60px]">Your next website.<br>A better <span style="color:var(--mint-text)">foundation.</span>
+</h1>
+<p class="mt-6 max-w-md text-base leading-7 muted">Beautiful, lightning-fast website kits built with Hugo &amp; Tailwind. For your docs, your startup, and whatever comes next.</p>
+<div class="mt-8 flex flex-wrap gap-3">
+<a href="{{ "/plans/" | relURL }}" class="btn-primary">Browse plans {{ partial "icon.html" (dict "name" "arrow" "class" "!h-4 !w-4") }}</a>
+<a href="{{ "/docs/" | relURL }}" class="btn-secondary">{{ partial "icon.html" (dict "name" "book" "class" "!h-4 !w-4 muted") }} View docs demo</a>
+</div>
+<div class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] muted">
+<span class="flex items-center gap-1.5">{{ partial "icon.html" (dict "name" "check" "class" "!h-3.5 !w-3.5 text-emerald-400") }} One-time payment</span>
+<span class="flex items-center gap-1.5">{{ partial "icon.html" (dict "name" "check" "class" "!h-3.5 !w-3.5 text-emerald-400") }} Own your code</span>
+<span class="flex items-center gap-1.5">{{ partial "icon.html" (dict "name" "check" "class" "!h-3.5 !w-3.5 text-emerald-400") }} No lock-in</span>
+</div>
+</div>
+    <div class="reveal relative pb-7 pt-3" style="animation-delay:.1s">
+<div class="absolute -inset-5 rounded-full bg-indigo-500/5 blur-3xl">
+</div>
+<div class="relative lg:-rotate-1">{{ partial "site-preview.html" . }}</div>
+<div class="panel absolute -bottom-1 right-3 flex items-center gap-3 !rounded-xl px-4 py-3 shadow-xl">
+<div class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-mint text-xs font-semibold" style="color:var(--mint-text)">100</div>
+<div>
+<p class="text-[11px] font-medium">Built for performance</p>
+<p class="mt-0.5 text-[9px] muted">Lighthouse target · zero compromises</p>
+</div>{{ partial "icon.html" (dict "name" "zap" "class" "ml-3 text-emerald-400 !h-4 !w-4") }}</div>
+<span class="absolute -left-2 -top-1 pill !rounded-lg !px-3 !py-2 text-xs shadow-lg">{{ partial "icon.html" (dict "name" "code" "class" "!h-3.5 !w-3.5 text-indigo-400") }} Static. And anything but boring.</span>
+</div>
+  </div>
+  <div class="shell pb-14">
+<div class="flex flex-col items-center justify-between gap-7 border-y py-7 lg:flex-row" style="border-color:var(--border)">
+<p class="text-xs muted">Built on tools you trust.<br>
+<span class="mt-1 inline-block">Ready for wherever you deploy.</span>
+</p>
+<div class="flex flex-wrap items-center justify-center gap-x-9 gap-y-6 text-lg font-semibold opacity-70 sm:gap-x-12">
+{{ range slice "Hugo" "Tailwind CSS" "Cloudflare Pages" "Vercel" "AWS" }}
+<span class="text-sm font-semibold tracking-tight">{{ . }}</span>
+{{ end }}
+</div>
+</div>
+</div>
+</section>
+<section class="shell pb-20 pt-6 lg:pb-24">
+<div class="flex flex-wrap items-end justify-between gap-4">
+<div>
+<p class="eyebrow">Small footprint. Big possibilities.</p>
+<h2 class="section-title">Made for your next chapter.</h2>
+</div>
+<p class="max-w-xs text-sm leading-6 muted">Skip the blank canvas. Start with something<br class="hidden sm:block"> thoughtfully built for what you need.</p>
+</div>
+<div class="mt-9 grid gap-5 md:grid-cols-3">{{ range slice (dict "icon" "book" "title" "Documentation sites" "desc" "Give your product the docs it deserves. Clear, searchable, and a joy to navigate." "category" "docs" "label" "Explore documentation kits") (dict "icon" "zap" "title" "Startup & SaaS pages" "desc" "Turn your big idea into a great first impression. Built to tell your story and convert." "category" "landing" "label" "Explore landing pages") (dict "icon" "layers" "title" "Custom static setups" "desc" "A little more ambitious? Let's build a fast, flexible foundation that fits your business." "category" "corporate" "label" "Explore custom solutions") }}<a href="{{ if eq .category "corporate" }}{{ "/contact/" | relURL }}{{ else }}{{ printf "/plans/?category=%s" .category | relURL }}{{ end }}" class="panel group p-7 transition hover:border-indigo-500">
+<span class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-400">{{ partial "icon.html" (dict "name" .icon) }}</span>
+<h3 class="text-lg font-medium tracking-tight">{{ .title }}</h3>
+<p class="mt-3 text-sm leading-6 muted">{{ .desc }}</p>
+<span class="text-link mt-6 !text-xs">{{ .label }} {{ partial "icon.html" (dict "name" "arrow" "class" "!h-4 !w-4 transition group-hover:translate-x-1") }}</span>
+</a>{{ end }}</div>
+</section>
+<section id="why-static" class="border-y" style="border-color:var(--border);background:var(--panel)">
+<div class="shell section grid items-center gap-12 lg:grid-cols-[.85fr_1.15fr]">
+<div>
+<p class="eyebrow">Less is a whole lot more.</p>
+<h2 class="section-title">All the website.<br>None of the baggage.</h2>
+<p class="mt-5 max-w-sm text-sm leading-7 muted">No databases to manage. No plugins to patch. No monthly platform fees. Just clean code, served at the speed of the web.</p>
+<a href="{{ "/docs/getting-started/" | relURL }}" class="text-link mt-7" style="color:var(--mint-text)">Meet your new stack {{ partial "icon.html" (dict "name" "arrow" "class" "!h-4 !w-4") }}</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full min-w-[350px] text-left text-sm">
+<caption class="sr-only">Static websites compared with traditional CMS websites. Actual results depend on implementation and hosting.</caption>
+<thead>
+<tr class="border-b" style="border-color:var(--border)">
+<th class="pb-5 text-xs font-normal muted">A simpler way to build</th>
+<th class="pb-5 text-xs font-semibold" style="color:var(--mint-text)">With NamahNest <span class="ml-1 rounded bg-emerald-500/10 px-1.5 py-1 text-[8px]">STATIC</span>
+</th>
+<th class="pb-5 text-xs font-normal muted">Traditional CMS</th>
+</tr>
+</thead>
+<tbody>{{ range slice (dict "icon" "zap" "name" "Page speed" "static" "Fast by default" "cms" "Requires optimization") (dict "icon" "shield" "name" "Security" "static" "Smaller attack surface" "cms" "Ongoing patching") (dict "icon" "globe" "name" "Hosting cost" "static" "Free tiers available" "cms" "Server costs vary") (dict "icon" "code" "name" "Maintenance" "static" "Simple, versioned updates" "cms" "Plugins & database upkeep") }}<tr class="border-b" style="border-color:var(--border)">
+<th class="py-5 text-xs font-normal">
+<span class="flex items-center gap-3">{{ partial "icon.html" (dict "name" .icon "class" "!h-4 !w-4 muted") }}{{ .name }}</span>
+</th>
+<td class="py-5 text-xs">
+<span class="flex items-center gap-2">{{ partial "icon.html" (dict "name" "check" "class" "!h-3 !w-3 text-emerald-400") }}{{ .static }}</span>
+</td>
+<td class="py-5 text-xs muted">{{ .cms }}</td>
+</tr>{{ end }}</tbody>
+</table>
+<p class="mt-3 text-[10px] muted">Hosting and performance depend on your content and provider.</p>
+</div>
+</div>
+</section>
+<section class="shell section">
+<div class="flex flex-wrap items-end justify-between gap-5">
+<div>
+<p class="eyebrow">Your shortcut to shipped.</p>
+<h2 class="section-title">A head start, beautifully built.</h2>
+<p class="mt-4 text-sm muted">Production-ready foundations. Yours to make your own.</p>
+</div>
+<a href="{{ "/plans/" | relURL }}" class="btn-secondary !py-2.5 !text-xs">View all plans {{ partial "icon.html" (dict "name" "arrow" "class" "!h-4 !w-4") }}</a>
+</div>
+<div class="mt-9 grid gap-6 md:grid-cols-3">{{ range first 3 (where .Site.RegularPages "Section" "plans").ByWeight }}{{ partial "plan-card.html" . }}{{ end }}</div>
+<p class="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs muted">{{ partial "icon.html" (dict "name" "shield" "class" "!h-3.5 !w-3.5") }} Every plan includes source code, deployment guides, and one year of updates.</p>
+</section>
+<section class="shell pb-20 lg:pb-24">
+<div class="mb-9 text-center">
+<p class="eyebrow justify-center">Built for people who build.</p>
+<h2 class="section-title">Less setup. More momentum.</h2>
+<p class="mt-4 text-xs muted">Illustrative stories showing what's possible with NamahNest.</p>
+</div>
+<div class="grid gap-5 md:grid-cols-3">{{ range slice (dict "quote" "We went from an empty repo to polished product docs in an afternoon. The hard decisions were already made for us." "name" "Alex Morgan" "role" "Founder, Orbit · Example story" "initials" "AM" "color" "bg-indigo-500/15 text-indigo-300") (dict "quote" "Finally, a landing page that feels as considered as our product. Fast, easy to customize, and no monthly subscription." "name" "Sarah Chen" "role" "Co-founder, Layers · Example story" "initials" "SC" "color" "bg-emerald-500/15 text-emerald-300") (dict "quote" "Clean code, great documentation, and a deployment that just works. Exactly the foundation our team was looking for." "name" "James Wilson" "role" "Engineering lead, North · Example story" "initials" "JW" "color" "bg-amber-500/15 text-amber-300") }}<figure class="panel p-7">
+<div class="mb-4 flex gap-1 text-mint" role="img" aria-label="Illustrative five-star rating">{{ range seq 5 }}{{ partial "icon.html" (dict "name" "star" "class" "!h-3 !w-3") }}{{ end }}</div>
+<blockquote class="text-sm leading-7">“{{ .quote }}”</blockquote>
+<figcaption class="mt-6 flex items-center gap-3">
+<span class="flex h-9 w-9 items-center justify-center rounded-full text-[10px] font-medium {{ .color }}">{{ .initials }}</span>
+<div>
+<p class="text-xs font-medium">{{ .name }}</p>
+<p class="mt-1 text-[10px] muted">{{ .role }}</p>
+</div>
+</figcaption>
+</figure>{{ end }}</div>
+</section>
+<section class="shell grid gap-10 pb-20 lg:grid-cols-[.8fr_1.2fr] lg:gap-24 lg:pb-24">
+<div>
+<p class="eyebrow">A little clarity.</p>
+<h2 class="section-title">Good questions.<br>Simple answers.</h2>
+<p class="mt-5 text-sm leading-6 muted">Have something else on your mind?</p>
+<a href="{{ "/contact/" | relURL }}" class="text-link mt-3" style="color:var(--mint-text)">Let's talk {{ partial "icon.html" (dict "name" "arrow" "class" "!h-4 !w-4") }}</a>
+</div>
+<div>{{ range slice (dict "q" "What do I get when I buy a plan?" "a" "You get the complete Hugo and Tailwind source code, a deployment guide, sample content, and one year of updates. You can customize every part of your site and host it wherever you choose.") (dict "q" "Where can I host my website?" "a" "Deploy to Cloudflare Pages, Vercel, Netlify, AWS, or any host that serves static files. Our documentation includes step-by-step guides. Provider free tiers and limits vary.") (dict "q" "Do I need to know how to code?" "a" "Basic familiarity with Markdown and a terminal helps. Content lives in simple Markdown files. Our guides walk you through setup; custom setup services are available if you prefer hands-on help.") (dict "q" "Is this a subscription?" "a" "Website kits are a one-time purchase. Optional monthly support is available separately. Your code and deployed site remain yours even if you stop support.") (dict "q" "Can I use it for a client project?" "a" "Yes. The MIT-licensed source code can be used for unlimited personal and client websites. You can modify and redistribute it, including commercially, while preserving the supplied copyright and license notices. Fonts and icons retain their respective open-source licenses.") }}<details>
+<summary>{{ .q }}<span class="faq-plus transition">{{ partial "icon.html" (dict "name" "plus" "class" "!h-4 !w-4 muted") }}</span>
+</summary>
+<p class="max-w-xl pb-6 text-sm leading-7 muted">{{ .a }}</p>
+</details>{{ end }}</div>
+</section>
+<section class="shell pb-20">
+<div class="panel relative overflow-hidden px-6 py-14 text-center sm:px-12" style="background:radial-gradient(ellipse at 50% 120%,rgba(99,102,241,.15),transparent 70%),var(--panel)">
+<p class="eyebrow justify-center">Start something good.</p>
+<h2 class="section-title">Your next chapter starts here.</h2>
+<p class="mt-4 text-sm muted">Less time setting up. More time making your mark.</p>
+<div class="mt-7 flex flex-wrap justify-center gap-3">
+<a href="{{ "/plans/" | relURL }}" class="btn-primary">Find your foundation {{ partial "icon.html" (dict "name" "arrow" "class" "!h-4 !w-4") }}</a>
+<a href="{{ "/contact/" | relURL }}" class="btn-secondary">Let's build something custom</a>
+</div>
+<p class="mt-5 text-[11px] muted">One-time purchase. A lasting foundation.</p>
+</div>
+</section>
+{{ end }}

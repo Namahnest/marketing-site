@@ -1,0 +1,21 @@
+<header class="site-header sticky top-0 z-50">
+  <div class="shell flex h-20 items-center justify-between gap-6">
+    <a href="{{ "/" | relURL }}" aria-label="NamahNest home">{{ partial "logo.html" . }}</a>
+    <nav class="hidden items-center gap-8 lg:flex" aria-label="Main navigation">
+      {{ range .Site.Menus.main }}<a class="text-sm muted transition hover:text-indigo-400" href="{{ .URL | relURL }}" {{ if eq $.RelPermalink .URL }}aria-current="page"{{ end }}>{{ .Name }}</a>{{ end }}
+    </nav>
+    <div class="flex items-center gap-3">
+      <button data-theme-toggle class="rounded-lg p-2 muted hover:text-indigo-400" aria-label="Switch to light mode"> <span class="dark:hidden">{{ partial "icon.html" (dict "name" "moon") }}</span>
+<span class="hidden dark:block">{{ partial "icon.html" (dict "name" "sun") }}</span>
+</button>
+      <span class="hidden h-5 w-px sm:block" style="background:var(--border)">
+</span>
+      <a href="{{ "/plans/" | relURL }}" class="btn-primary hidden !py-2.5 sm:inline-flex">Find your plan {{ partial "icon.html" (dict "name" "arrow" "class" "!h-4 !w-4") }}</a>
+      <button id="menu-toggle" class="rounded-lg p-2 lg:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation">{{ partial "icon.html" (dict "name" "menu") }}</button>
+    </div>
+  </div>
+  <nav id="mobile-menu" hidden class="shell border-t py-5 lg:hidden" style="border-color:var(--border)" aria-label="Mobile navigation">
+    {{ range .Site.Menus.main }}<a class="block py-3 text-sm" href="{{ .URL | relURL }}">{{ .Name }}</a>{{ end }}
+    <a href="{{ "/plans/" | relURL }}" class="btn-primary mt-3 w-full">Find your plan {{ partial "icon.html" (dict "name" "arrow") }}</a>
+  </nav>
+</header>

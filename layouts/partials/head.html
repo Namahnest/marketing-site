@@ -1,0 +1,25 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — NamahNest{{ end }}</title>
+<meta name="description" content="{{ .Description | default .Site.Params.description }}">
+<meta name="theme-color" content="#090d16">
+{{ if eq .Kind "404" }}<meta name="robots" content="noindex, follow">{{ end }}
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+<link rel="preload" href="{{ "fonts/inter-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — NamahNest{{ end }}">
+<meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
+<meta property="og:type" content="{{ if eq .Section "docs" }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="NamahNest">
+<meta property="og:image" content="{{ .Site.Params.socialImage | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NamahNest — Your next website. A better foundation.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ .Site.Params.socialImage | absURL }}">
+{{ range .AlternativeOutputFormats }}<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">{{ end }}
+<script>try { if (localStorage.getItem('namahnest-theme') === 'light') document.documentElement.classList.remove('dark'); } catch(e) {}</script>
+{{ $css := resources.Get "css/compiled.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{ partial "seo-schema.html" . }}

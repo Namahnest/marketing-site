@@ -1,0 +1,21 @@
+{{ define "main" }}<div class="shell grid items-start gap-10 py-10 lg:grid-cols-[190px_1fr] xl:grid-cols-[190px_1fr_180px]">
+<aside class="hidden lg:sticky lg:top-28 lg:block">{{ partial "docs-nav.html" . }}</aside>
+<article class="min-w-0">
+<nav class="mb-8 flex items-center gap-2 text-xs muted" aria-label="Breadcrumb">
+<a href="{{ "/docs/" | relURL }}">Documentation</a>{{ partial "icon.html" (dict "name" "chevron" "class" "!h-3 !w-3") }}<span>{{ .Params.group }}</span>{{ partial "icon.html" (dict "name" "chevron" "class" "!h-3 !w-3") }}<span aria-current="page">{{ .Title }}</span>
+</nav>
+<h1 class="text-4xl font-semibold tracking-[-0.045em]">{{ .Title }}</h1>
+<p class="mt-4 text-base leading-7 muted">{{ .Description }}</p>
+<details class="mt-5 xl:hidden">
+<summary>On this page {{ partial "icon.html" (dict "name" "plus" "class" "!h-4 !w-4") }}</summary>
+<div class="toc pb-5">{{ .TableOfContents }}</div>
+</details>
+<div class="prose mt-8">{{ .Content }}</div>
+<div class="mt-12 flex flex-wrap items-center justify-between gap-4 border-t py-6 text-xs muted" style="border-color:var(--border)">
+<a href="{{ "/docs/" | relURL }}" class="text-link !text-xs">← All guides</a>{{ with .Site.Params.github }}<a href="{{ . }}/edit/main/content/{{ $.File.Path }}" class="text-link !text-xs">{{ partial "icon.html" (dict "name" "github" "class" "!h-4 !w-4") }} Edit this page on GitHub</a>{{ else }}<a href="{{ "/contact/?plan=General%20question" | relURL }}" class="text-link !text-xs">Suggest an improvement {{ partial "icon.html" (dict "name" "arrow" "class" "!h-4 !w-4") }}</a>{{ end }}</div>
+<div class="panel mb-6 p-5 lg:hidden">{{ partial "docs-nav.html" . }}</div>
+</article>
+<aside class="toc sticky top-28 hidden border-l pl-5 xl:block" style="border-color:var(--border)">
+<h2 class="mb-4 text-[10px] font-semibold uppercase tracking-widest">On this page</h2>{{ .TableOfContents }}<a href="{{ "/contact/" | relURL }}" class="mt-6 border-t pt-5" style="border-color:var(--border)">Need a hand? Let's talk ↗</a>
+</aside>
+</div>{{ end }}

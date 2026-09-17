@@ -1,0 +1,19 @@
+<article class="panel plan-card" data-plan-category="{{ .Params.category }}">
+  <a href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">{{ partial "plan-art.html" . }}</a>
+  <div class="flex flex-1 flex-col p-6">
+<div class="mb-3 flex items-center justify-between">
+<span class="text-[10px] font-medium uppercase tracking-[0.12em] muted">{{ .Params.categoryLabel }}</span>{{ with .Params.badge }}<span class="rounded-full bg-indigo-500/10 px-2.5 py-1 text-[9px] font-medium text-indigo-400">{{ . }}</span>{{ end }}</div>
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-semibold tracking-tight">
+<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+</h3>
+<span class="text-xl font-semibold" style="color:var(--mint-text)">${{ .Params.price }}</span>
+</div>
+<p class="mb-5 mt-3 text-sm leading-6 muted">{{ .Description }}</p>
+<ul class="mb-6 space-y-2.5 text-xs muted">{{ range first 3 .Params.features }}<li class="flex items-center gap-2">{{ partial "icon.html" (dict "name" "check" "class" "!h-3.5 !w-3.5 text-emerald-400") }}{{ . }}</li>{{ end }}</ul>
+<div class="mt-auto flex items-center justify-between border-t pt-4" style="border-color:var(--border)">
+<a href="{{ .RelPermalink }}#preview" class="text-link !text-xs">Live preview {{ partial "icon.html" (dict "name" "external" "class" "!h-3 !w-3") }}</a>
+<a href="{{ .RelPermalink }}" class="btn-secondary !px-3 !py-2 !text-xs">Get this plan {{ partial "icon.html" (dict "name" "arrow" "class" "!h-3 !w-3") }}</a>
+</div>
+</div>
+</article>

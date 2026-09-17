@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="shell section">
+<div class="max-w-2xl">
+<p class="eyebrow">Thoughtful by default.</p>
+<h1 class="text-4xl font-semibold tracking-[-0.05em] md:text-5xl">{{ .Title }}.</h1>
+<p class="mt-5 text-base leading-7 muted">A head start for your next big thing. Explore website kits built with Hugo and Tailwind. One purchase, complete ownership.</p>
+</div>
+<div class="mb-8 mt-10 flex flex-wrap items-center gap-2" role="group" aria-label="Filter plans by category">
+<button data-filter="all" class="filter-btn" aria-pressed="true">All plans <span class="ml-1 text-xs muted">03</span>
+</button>
+<button data-filter="docs" class="filter-btn" aria-pressed="false">Documentation</button>
+<button data-filter="landing" class="filter-btn" aria-pressed="false">Startup & SaaS</button>
+<button data-filter="corporate" class="filter-btn" aria-pressed="false">Business & agency</button>
+</div>
+<p data-filter-status class="sr-only" aria-live="polite">
+</p>
+<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{{ range .Pages.ByWeight }}{{ partial "plan-card.html" . }}{{ end }}</div>
+<div class="panel mt-12 flex flex-col justify-between gap-5 p-8 sm:flex-row sm:items-center">
+<div>
+<h2 class="text-xl font-semibold tracking-tight">Something a little more custom?</h2>
+<p class="mt-2 text-sm muted">Let's build a static foundation around your team's needs.</p>
+</div>
+<a href="{{ "/contact/?plan=Custom%20architecture" | relURL }}" class="btn-primary">Talk about your project {{ partial "icon.html" (dict "name" "arrow" "class" "!h-4 !w-4") }}</a>
+</div>
+</section>
+{{ end }}

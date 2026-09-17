@@ -1,0 +1,65 @@
+{{ define "main" }}<section class="shell section grid items-start gap-12 lg:grid-cols-[.85fr_1.15fr]">
+<div>
+<p class="eyebrow">Every good thing starts with a conversation.</p>
+<h1 class="text-4xl font-semibold tracking-[-0.05em] md:text-5xl">{{ .Title }}</h1>
+<p class="mt-6 max-w-md text-base leading-7 muted">A new website, better documentation, or a custom architecture. Tell us what you have in mind.</p>
+<div class="mt-10 space-y-6">
+<div class="flex gap-4">{{ partial "icon.html" (dict "name" "mail" "class" "text-indigo-400") }}<div>
+<h2 class="text-sm font-medium">Prefer email?</h2>
+<a href="mailto:{{ .Site.Params.email }}" class="mt-2 block text-sm muted">{{ .Site.Params.email }}</a>
+</div>
+</div>
+<div class="flex gap-4">{{ partial "icon.html" (dict "name" "layers" "class" "text-indigo-400") }}<div>
+<h2 class="text-sm font-medium">Your project, thoughtfully scoped.</h2>
+<p class="mt-2 max-w-xs text-sm leading-6 muted">We'll help you choose the right foundation and outline a clear next step.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel p-6 sm:p-8">
+<form id="contact-form" {{ with .Site.Params.contactEndpoint }}action="{{ . }}" method="POST"{{ end }} data-email="{{ .Site.Params.email }}">
+<div class="grid gap-5 sm:grid-cols-2">
+<div>
+<label for="name" class="mb-2 block text-xs font-medium">Your name <span class="text-indigo-400">*</span>
+</label>
+<input id="name" name="name" class="field" required minlength="2" maxlength="100" autocomplete="name" placeholder="Alex Morgan">
+</div>
+<div>
+<label for="email" class="mb-2 block text-xs font-medium">Email address <span class="text-indigo-400">*</span>
+</label>
+<input id="email" name="email" type="email" required maxlength="200" autocomplete="email" class="field" placeholder="alex@company.com">
+</div>
+</div>
+<div class="mt-5">
+<label for="company" class="mb-2 block text-xs font-medium">Company <span class="muted">(optional)</span>
+</label>
+<input id="company" name="company" class="field" autocomplete="organization" maxlength="100" placeholder="Your company or project">
+</div>
+<div class="mt-5">
+<label for="interest" class="mb-2 block text-xs font-medium">What are you interested in?</label>
+<select id="interest" name="interest" class="field">
+<option value="Custom architecture">Custom architecture</option>
+<option value="Atlas Docs">Atlas Docs</option>
+<option value="Launchpad">Launchpad</option>
+<option value="Mono Studio">Mono Studio</option>
+<option value="Enterprise Custom Setup">Enterprise custom setup</option>
+<option value="General question">Something else</option>
+</select>
+</div>
+<div class="mt-5">
+<label for="message" class="mb-2 block text-xs font-medium">Tell us a little about your project <span class="text-indigo-400">*</span>
+</label>
+<textarea id="message" name="message" rows="5" minlength="10" maxlength="5000" required class="field resize-y" placeholder="What are you building? What would make it a success?">
+</textarea>
+</div>
+<div class="hidden" aria-hidden="true">
+<label for="website">Leave this empty</label>
+<input id="website" name="website" tabindex="-1" autocomplete="off">
+</div>
+<button type="submit" class="btn-primary mt-6 w-full">{{ if .Site.Params.contactEndpoint }}Send your message{{ else }}Compose your message{{ end }} {{ partial "icon.html" (dict "name" "arrow" "class" "!h-4 !w-4") }}</button>
+<p class="mt-3 text-center text-[11px] leading-5 muted">{{ if .Site.Params.contactEndpoint }}We'll use your details to reply to your request.{{ else }}Opens your email app with your project details ready to send.{{ end }}</p>
+<p id="contact-status" class="mt-3 text-sm muted" role="status">
+</p>
+</form>
+</div>
+</section>{{ end }}

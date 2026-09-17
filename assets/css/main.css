@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/inter-latin.woff2') format('woff2');
+}
+
+@layer base {
+  :root { color-scheme: light; --bg: #f8fafc; --panel: #fff; --panel-alt: #f1f5f9; --text: #17212b; --muted: #586575; --border: #dce3e9; --mint-text: #197647; }
+  :root.dark { color-scheme: dark; --bg: #090d16; --panel: #111620; --panel-alt: #151b26; --text: #eef1f5; --muted: #9199a8; --border: #242b37; --mint-text: #a3e6bb; }
+  html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+  body { background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+  ::selection { background: #6366f1; color: white; }
+  button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { outline: 2px solid #6366f1; outline-offset: 5px; }
+  button { cursor: pointer; }
+  [hidden] { display: none !important; }
+}
+@layer components {
+  .shell { @apply mx-auto w-full max-w-[1240px] px-6 sm:px-10; }
+  .section { @apply py-20 lg:py-24; }
+  .eyebrow { @apply mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.17em]; color: var(--mint-text); }
+  .eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .section-title { @apply text-3xl font-semibold leading-tight tracking-[-0.045em] md:text-[42px]; }
+  .muted { color: var(--muted); }
+  .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; }
+  .btn { @apply inline-flex items-center justify-center gap-3 rounded-lg px-5 py-3 text-sm font-semibold transition duration-200; }
+  .btn-primary { @apply btn bg-mint text-[#11241a] hover:bg-[#b8f0cc] hover:-translate-y-0.5; }
+  .btn-secondary { @apply btn; border: 1px solid var(--border); background: var(--panel); }
+  .btn-secondary:hover { border-color: #818cf8; }
+  .icon { @apply inline-block h-5 w-5 shrink-0; }
+  .text-link { @apply inline-flex items-center gap-2 text-sm font-medium; }
+  .text-link:hover { color: var(--mint-text); }
+  .pill { @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-medium; background: var(--panel-alt); border: 1px solid var(--border); }
+  .prose { @apply max-w-none text-base leading-8; color: var(--muted); }
+  .prose h2 { @apply mb-4 mt-10 text-2xl font-semibold tracking-tight; color: var(--text); }
+  .prose h3 { @apply mb-3 mt-7 text-lg font-semibold; color: var(--text); }
+  .prose p { @apply mb-5; }
+  .prose ul { @apply mb-5 list-disc space-y-2 pl-5; }
+  .prose ol { @apply mb-5 list-decimal space-y-2 pl-5; }
+  .prose a { @apply text-indigo-400 underline underline-offset-4; }
+.prose pre { @apply my-6 overflow-x-auto rounded-xl p-5 text-sm; background: var(--panel-alt); border: 1px solid var(--border); }
+  .prose code { @apply font-mono text-sm; color: var(--mint-text); }
+  .field { @apply w-full rounded-lg px-4 py-3 text-sm; color: var(--text); background: var(--bg); border: 1px solid var(--border); }
+  .field:user-invalid { border-color: #fb7185; }
+}
+.site-header { background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+.hero-glow { background: radial-gradient(ellipse at 65% 34%, rgba(99,102,241,.09), transparent 55%); }
+.hero-glow .btn { gap: 10px; padding-inline: 18px; font-size: 13px; }
+/* Keep offscreen sections in the HTML while deferring their layout and paint. */
+main > section:not(:first-child) { content-visibility: auto; contain-intrinsic-size: auto 700px; }
+footer { content-visibility: auto; contain-intrinsic-size: auto 420px; }
+.grid-texture { background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 28px 28px; }
+.browser { box-shadow: 0 24px 70px -28px rgba(0,0,0,.7); }
+.browser-toolbar { border-bottom: 1px solid var(--border); background: var(--panel-alt); }
+.preview-link { @apply rounded-md px-3 py-2 text-[10px]; color: var(--muted); }
+.preview-link.active { color: #b9baff; background: rgba(99,102,241,.13); }
+.preview-sidebar { border-right: 1px solid var(--border); }
+.plan-card { @apply flex h-full flex-col overflow-hidden transition duration-200; }
+.plan-card:hover { transform: translateY(-4px); border-color: #6366f1; }
+.plan-art { @apply relative flex h-48 items-center justify-center overflow-hidden p-6; background: var(--panel-alt); border-bottom: 1px solid var(--border); }
+.plan-art.docs { background: radial-gradient(ellipse at 50% 100%, #34305a 0, #181a2a 65%); }
+.plan-art.landing { background: radial-gradient(ellipse at 50% 100%, #24493c 0, #14241f 65%); }
+.plan-art.corporate { background: radial-gradient(ellipse at 50% 100%, #344356 0, #17202c 65%); }
+.filter-btn { @apply rounded-lg px-4 py-2 text-sm transition; color: var(--muted); }
+.filter-btn[aria-pressed=true] { background: var(--panel-alt); color: var(--text); box-shadow: inset 0 0 0 1px var(--border); }
+details { border-bottom: 1px solid var(--border); }
+details summary { @apply flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-sm font-medium; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary .faq-plus { transform: rotate(45deg); }
+.toc a { @apply block py-1.5 text-xs leading-5; color: var(--muted); }
+.toc ul { @apply list-none pl-0; }
+.toc ul ul { @apply pl-3; }
+.toc a:hover { color: var(--mint-text); }
+:root:not(.dark) .text-indigo-400, :root:not(.dark) .prose a { color: #4f46e5; }
+:root:not(.dark) .text-indigo-300 { color: #4338ca; }
+:root:not(.dark) .text-emerald-400, :root:not(.dark) .text-mint { color: #047857; }
+:root:not(.dark) .preview-link.active { color: #4f46e5; }
+:root:not(.dark) .plan-art .text-mint { color: #a3e6bb; }
+.reveal { animation: enter .7s ease-out both; }
+@keyframes enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
