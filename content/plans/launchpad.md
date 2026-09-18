@@ -5,7 +5,7 @@ weight: 2
 category: landing
 categoryLabel: Startup & SaaS
 badge: Built to convert
-price: 59
+price: TBA
 support: 19
 performance: 95–100 target
 features:
