@@ -1,4 +1,4 @@
-baseURL = 'https://namahnest.example/'
+baseURL = 'https://www.namahnest.com/'
 languageCode = 'en-us'
 title = 'NamahNest — A better foundation for the web'
 enableRobotsTXT = true
