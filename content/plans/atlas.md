@@ -5,7 +5,7 @@ weight: 1
 category: docs
 categoryLabel: Documentation kit
 badge: Most popular
-price: 79
+price: TBA
 support: 19
 performance: 95–100 target
 features:

@@ -5,7 +5,7 @@ weight: 3
 category: corporate
 categoryLabel: Business & agency
 badge: Clean & flexible
-price: 99
+price: TBA
 support: 29
 performance: 95–100 target
 features:

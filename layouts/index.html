@@ -37,11 +37,11 @@
 <p class="text-xs muted">Built on tools you trust.<br>
 <span class="mt-1 inline-block">Ready for wherever you deploy.</span>
 </p>
-<div class="flex flex-wrap items-center justify-center gap-x-9 gap-y-6 text-lg font-semibold opacity-70 sm:gap-x-12">
+<!-- <div class="flex flex-wrap items-center justify-center gap-x-9 gap-y-6 text-lg font-semibold opacity-70 sm:gap-x-12">
 {{ range slice "Hugo" "Tailwind CSS" "Cloudflare Pages" "Vercel" "AWS" }}
 <span class="text-sm font-semibold tracking-tight">{{ . }}</span>
 {{ end }}
-</div>
+</div> -->
 </div>
 </div>
 </section>
@@ -79,7 +79,7 @@
 <th class="pb-5 text-xs font-normal muted">Traditional CMS</th>
 </tr>
 </thead>
-<tbody>{{ range slice (dict "icon" "zap" "name" "Page speed" "static" "Fast by default" "cms" "Requires optimization") (dict "icon" "shield" "name" "Security" "static" "Smaller attack surface" "cms" "Ongoing patching") (dict "icon" "globe" "name" "Hosting cost" "static" "Free tiers available" "cms" "Server costs vary") (dict "icon" "code" "name" "Maintenance" "static" "Simple, versioned updates" "cms" "Plugins & database upkeep") }}<tr class="border-b" style="border-color:var(--border)">
+<tbody>{{ range slice (dict "icon" "zap" "name" "Page speed" "static" "Fast by default" "cms" "Requires optimization") (dict "icon" "shield" "name" "Security" "static" "Smaller attack surface" "cms" "Ongoing patching") (dict "icon" "code" "name" "Maintenance" "static" "Simple, versioned updates" "cms" "Plugins & database upkeep") }}<tr class="border-b" style="border-color:var(--border)">
 <th class="py-5 text-xs font-normal">
 <span class="flex items-center gap-3">{{ partial "icon.html" (dict "name" .icon "class" "!h-4 !w-4 muted") }}{{ .name }}</span>
 </th>
@@ -105,7 +105,7 @@
 <div class="mt-9 grid gap-6 md:grid-cols-3">{{ range first 3 (where .Site.RegularPages "Section" "plans").ByWeight }}{{ partial "plan-card.html" . }}{{ end }}</div>
 <p class="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs muted">{{ partial "icon.html" (dict "name" "shield" "class" "!h-3.5 !w-3.5") }} Every plan includes source code, deployment guides, and one year of updates.</p>
 </section>
-<section class="shell pb-20 lg:pb-24">
+<!-- <section class="shell pb-20 lg:pb-24">
 <div class="mb-9 text-center">
 <p class="eyebrow justify-center">Built for people who build.</p>
 <h2 class="section-title">Less setup. More momentum.</h2>
@@ -122,7 +122,7 @@
 </div>
 </figcaption>
 </figure>{{ end }}</div>
-</section>
+</section> -->
 <section class="shell grid gap-10 pb-20 lg:grid-cols-[.8fr_1.2fr] lg:gap-24 lg:pb-24">
 <div>
 <p class="eyebrow">A little clarity.</p>
