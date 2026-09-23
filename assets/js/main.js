@@ -84,6 +84,49 @@
     const interest = document.getElementById('interest');
     if ([...interest.options].some(option => option.value === params.get('plan'))) interest.value = params.get('plan');
     if (params.get('support') === 'yes') document.getElementById('message').value = 'I would like to purchase this kit with the optional monthly support add-on.';
+    if (form.hasAttribute('data-web3forms')) {
+      let submitting = false;
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        if (submitting || !form.reportValidity() || document.getElementById('website').value || form.elements.namedItem('botcheck').checked) return;
+        const status = document.getElementById('contact-status');
+        const button = form.querySelector('button[type="submit"]');
+        const originalLabel = button.innerHTML;
+        const data = Object.fromEntries(new FormData(form));
+        delete data.website;
+        delete data.redirect;
+        data.subject = `NamahNest enquiry: ${data.interest}`;
+        submitting = true;
+        button.disabled = true;
+        button.textContent = 'Sending…';
+        form.setAttribute('aria-busy', 'true');
+        status.textContent = 'Sending your message…';
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 20000);
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(data),
+            signal: controller.signal
+          });
+          const result = await response.json();
+          if (!response.ok || result.success !== true) throw new Error('Submission failed');
+          form.reset();
+          status.textContent = "Thanks! Your message has been sent. We'll get back to you by email.";
+        } catch (error) {
+          status.textContent = error.name === 'AbortError'
+            ? 'The request timed out, so we could not confirm delivery. Your details are still here. Please try again later or use the email link.'
+            : 'We could not confirm that your message was sent. Your details are still here. Please try again or use the email link.';
+        } finally {
+          clearTimeout(timeout);
+          submitting = false;
+          button.disabled = false;
+          button.innerHTML = originalLabel;
+          form.removeAttribute('aria-busy');
+        }
+      });
+    }
     if (!form.hasAttribute('action')) form.addEventListener('submit', e => {
       e.preventDefault();
       if (!form.reportValidity() || document.getElementById('website').value) return;
