@@ -59,7 +59,7 @@ Edit `hugo.toml`:
 
 - Set `baseURL` to the real HTTPS production domain.
 - Replace the example brand metadata and `params.email` with your business details.
-- Set `params.contactEndpoint` to a hosted form service's HTTPS POST endpoint for direct submission. Without it, the validated contact form opens an email draft; it does not pretend to deliver messages.
+- Contact enquiries use Web3Forms: configure `params.contactEndpoint` and `params.web3formsAccessKey` in `hugo.toml`. Messages go to the inbox associated with the key. The form shows delivery status, preserves input on failure, and includes spam honeypots. Without an endpoint, it opens an email draft instead.
 - Newsletter signup opens an email request. Connect your email platform before running a newsletter campaign.
 - Set `params.github` to your real repository to enable “Edit this page on GitHub” links on the `main` branch. Without it, documentation offers a local feedback link.
 - Product buy buttons currently create purchase enquiries. Connect your checkout provider when real payment links are available.

@@ -9,9 +9,11 @@ summaryLength = 24
   brand = 'NamahNest'
   description = 'Thoughtfully crafted Hugo and Tailwind website kits for documentation, startups, and ambitious teams. Own your code. Launch with confidence.'
   author = 'NamahNest Studio'
-  email = 'namahnest@gmail.com'
+  email = 'connect@namahnest.com'
   github = ''
-  contactEndpoint = ''
+  contactEndpoint = 'https://api.web3forms.com/submit'
+  # Web3Forms must associate this key with connect@namahnest.com for delivery.
+  web3formsAccessKey = '173a7407-5004-46ef-9abe-1bc723e40d9f'
   socialImage = '/images/social-card.png'
   currency = 'USD'
 

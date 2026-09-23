@@ -17,7 +17,15 @@
 </div>
 </div>
 <div class="panel p-6 sm:p-8">
-<form id="contact-form" {{ with .Site.Params.contactEndpoint }}action="{{ . }}" method="POST"{{ end }} data-email="{{ .Site.Params.email }}">
+{{ $web3forms := and (eq .Site.Params.contactEndpoint "https://api.web3forms.com/submit") .Site.Params.web3formsAccessKey }}
+<form id="contact-form" {{ with .Site.Params.contactEndpoint }}action="{{ . }}" method="POST"{{ end }} {{ if $web3forms }}data-web3forms{{ end }} data-email="{{ .Site.Params.email }}">
+{{ if $web3forms }}
+<input type="hidden" name="access_key" value="{{ .Site.Params.web3formsAccessKey }}">
+<input type="hidden" name="subject" value="New NamahNest website enquiry">
+<input type="hidden" name="from_name" value="NamahNest Contact Form">
+<input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" aria-hidden="true">
+<noscript><input type="hidden" name="redirect" value="https://web3forms.com/success"></noscript>
+{{ end }}
 <div class="grid gap-5 sm:grid-cols-2">
 <div>
 <label for="name" class="mb-2 block text-xs font-medium">Your name <span class="text-indigo-400">*</span>

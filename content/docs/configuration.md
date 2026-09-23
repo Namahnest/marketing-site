@@ -19,7 +19,9 @@ Update the title, description, author, email, and social image in the `[params]`
 
 ## Configure contact delivery
 
-The default form validates required fields and opens the visitor's email app with a prepared message. Set `params.email` to a real inbox before launch. To send directly to a form service, set `params.contactEndpoint` to the HTTPS form endpoint provided by your service. The form then uses a native POST submission.
+The contact form is connected to Web3Forms. Set `params.contactEndpoint` to `https://api.web3forms.com/submit` and `params.web3formsAccessKey` to your Web3Forms access key in `hugo.toml`. Enquiries are delivered to the inbox associated with that key. The key is a public form identifier and is included in the generated HTML.
+
+Visitors see sending, success, and error messages on the page. Failed requests preserve their details for retry, and hidden honeypot fields help reject spam. Without JavaScript, the form submits directly to Web3Forms and opens its confirmation page. Set `params.email` for the alternative email link. Other form endpoints use native POST submission; removing the endpoint restores the email-draft fallback.
 
 ## Connect your repository
 
