@@ -1,0 +1,13 @@
+NamahNest Tech — original generated instrumental
+
+This soundtrack was synthesized specifically for this advertisement by
+scripts/create-ad-music.mjs. It uses mathematical oscillators and generated
+noise, with no third-party music, samples, loops, or sound recordings.
+
+Permission is granted to use, copy, edit, distribute, and synchronize the
+generated soundtrack, including in commercial advertising, without payment
+or attribution. To the extent any rights in this generated contribution can
+be waived, they are waived; otherwise these permissions apply without limit.
+
+This notice concerns this generated soundtrack only. It does not assert
+exclusive ownership or guarantee the behavior of automated Content ID systems.
